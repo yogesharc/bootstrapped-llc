@@ -46,6 +46,7 @@ function SoldText() {
       className="relative inline-block"
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
+      onClick={() => setShow((s) => !s)}
     >
       <span className="cursor-default underline decoration-dotted underline-offset-4 decoration-border">
         both sold
@@ -92,9 +93,8 @@ export default function Home() {
         <h1 className="text-lg font-medium tracking-tight mb-8">Bootstrapped</h1>
         <div className="text-base leading-[1.8] space-y-6">
           <p>
-            Bootstrapped is an independent software company. We make tools
-            that are simple, fast, and useful — things we&apos;d want to use
-            ourselves.
+            An independent software company. We make tools that are simple,
+            fast, and useful — things we&apos;d want to use ourselves.
           </p>
 
           <p>

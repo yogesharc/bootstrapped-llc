@@ -15,6 +15,13 @@ export const metadata = {
   title: "Bootstrapped — An independent software company",
   description: "We make tools that are simple, fast, and useful.",
   metadataBase: new URL("https://bootstrapped.llc"),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Bootstrapped — An independent software company",
     description: "We make tools that are simple, fast, and useful.",
