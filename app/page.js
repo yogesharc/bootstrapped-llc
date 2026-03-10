@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from "react";
-
-function Link({ href, children }) {
+function ExternalLink({ href, children }) {
   return (
     <a
       href={href}
@@ -17,11 +15,7 @@ function Link({ href, children }) {
 
 function XIcon() {
   return (
-    <svg
-      className="w-3.5 h-3.5 text-muted"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
+    <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
@@ -29,75 +23,84 @@ function XIcon() {
 
 const TWEETS = [
   {
-    handle: "@bondexapp",
-    text: "Bondex acquires Remote3.co — Adding 100,000+ monthly visitors and 20,500 profiles to our ecosystem.",
-    date: "Nov 13, 2025",
-    url: "https://x.com/bondexapp/status/1988925324831433160",
-  },
-  {
-    handle: "@marclou",
+    name: "Marc Lou",
+    handle: "marclou",
+    avatarUrl: "https://pbs.twimg.com/profile_images/1514863683574599681/9k7PqDTA_400x400.jpg",
     text: "$85,000 acquisition on TrustMRR — @yogesharc discovered his job board was getting traffic from ChatGPT, so he built a tool to monitor when AI tools mention your service.",
     date: "Jan 29, 2026",
     url: "https://x.com/marclou/status/2016892441237082209",
+    likes: "612",
+    replies: "48",
+  },
+  {
+    name: "Bondex",
+    handle: "bondexapp",
+    avatarUrl: "https://pbs.twimg.com/profile_images/1615036567021551637/DpGTbNu9_400x400.jpg",
+    text: "Bondex acquires Remote3.co — Adding 100,000+ monthly visitors and 20,500 profiles to our ecosystem.",
+    date: "Nov 13, 2025",
+    url: "https://x.com/bondexapp/status/1988925324831433160",
+    likes: "284",
+    replies: "31",
   },
 ];
 
-function SoldText() {
-  const [show, setShow] = useState(false);
-
+function TweetCard({ tweet }) {
   return (
-    <span
-      className="relative inline-block"
-      onMouseEnter={() => setShow(true)}
-      onMouseLeave={() => setShow(false)}
-      onClick={() => setShow((s) => !s)}
+    <a
+      href={tweet.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block rounded-2xl border border-border bg-white p-4 hover:bg-black/[0.015] transition-colors no-underline"
     >
-      <span className="cursor-default underline decoration-dotted underline-offset-4 decoration-border">
-        sold
-      </span>
-      {show && (
-        <span
-          className="absolute left-1/2 bottom-full mb-0 z-50 flex flex-col gap-0 w-[300px] -translate-x-1/2"
-          style={{ animation: "fadeIn 0.15s ease-out" }}
-        >
-          <span className="rounded-xl border border-border bg-background shadow-sm overflow-hidden">
-            {TWEETS.map((tweet, i) => (
-              <a
-                key={tweet.url}
-                href={tweet.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block p-4 hover:bg-black/[0.02] transition-colors no-underline ${
-                  i > 0 ? "border-t border-border" : ""
-                }`}
-              >
-                <span className="flex items-center justify-between mb-2">
-                  <span className="text-[13px] font-medium text-foreground">
-                    {tweet.handle}
-                  </span>
-                  <XIcon />
-                </span>
-                <span className="block text-[13px] leading-relaxed text-foreground/80">
-                  {tweet.text}
-                </span>
-                <span className="block text-xs text-muted mt-2">
-                  {tweet.date}
-                </span>
-              </a>
-            ))}
-          </span>
-          {/* Invisible bridge so cursor can travel from text to popover */}
-          <span className="block h-2" />
+      {/* Header */}
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex items-center gap-3">
+          <img
+            src={tweet.avatarUrl}
+            alt={tweet.name}
+            className="w-10 h-10 rounded-full object-cover"
+          />
+          <div>
+            <div className="text-[15px] font-bold text-foreground leading-tight">
+              {tweet.name}
+            </div>
+            <div className="text-[14px] text-muted leading-tight">
+              @{tweet.handle}
+            </div>
+          </div>
+        </div>
+        <span className="text-foreground mt-0.5">
+          <XIcon />
         </span>
-      )}
-    </span>
+      </div>
+
+      {/* Body */}
+      <p className="text-[15px] leading-relaxed text-foreground mb-3">
+        {tweet.text}
+      </p>
+
+      {/* Date */}
+      <div className="text-[14px] text-muted border-t border-border pt-3 mb-3">
+        {tweet.date}
+      </div>
+
+      {/* Stats */}
+      <div className="flex gap-4 text-[14px] text-muted">
+        <span>
+          <span className="font-semibold text-foreground">{tweet.replies}</span> Replies
+        </span>
+        <span>
+          <span className="font-semibold text-foreground">{tweet.likes}</span> Likes
+        </span>
+      </div>
+    </a>
   );
 }
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center px-6 sm:px-8">
-      <div className="max-w-lg">
+    <main className="min-h-screen flex items-center justify-center px-6 sm:px-8 py-16">
+      <div className="max-w-lg w-full">
         <h1 className="text-base mb-4">Bootstrapped</h1>
         <div className="text-base leading-[1.8] space-y-2">
           <p>
@@ -125,26 +128,35 @@ export default function Home() {
           <p className="text-muted">***</p>
 
           <p>
-            We <SoldText />{" "}
-            <Link href="https://remote3.co?utm_source=bootstrapped-llc">
-              Remote3
-            </Link>{" "}
-            and{" "}
-            <Link href="https://www.promptmonitor.io?utm_source=bootstrapped-llc">
+            We sold{" "}
+            <ExternalLink href="https://www.promptmonitor.io?utm_source=bootstrapped-llc">
               Promptmonitor
-            </Link>
+            </ExternalLink>{" "}
+            and{" "}
+            <ExternalLink href="https://remote3.co?utm_source=bootstrapped-llc">
+              Remote3
+            </ExternalLink>
             .
           </p>
+
+          <div className="flex flex-col gap-3 pt-2">
+            {TWEETS.map((tweet) => (
+              <TweetCard key={tweet.url} tweet={tweet} />
+            ))}
+          </div>
         </div>
 
-        <div className="flex items-center justify-between text-muted text-sm pt-12">
+        <div className="flex items-center justify-between text-muted text-sm pt-10">
           <span>&copy; 2022&ndash;{new Date().getFullYear()}</span>
-          {/* <a
-            href="mailto:support@bootstrapped.llc"
-            className="underline underline-offset-4 decoration-border hover:decoration-muted transition-colors"
+          <a
+            href="https://x.com/yogesharc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-foreground transition-colors"
           >
-            Email
-          </a>*/}
+            <XIcon />
+            <span>@yogesharc</span>
+          </a>
         </div>
       </div>
     </main>
