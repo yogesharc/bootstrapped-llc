@@ -104,8 +104,8 @@ export default function Home() {
         <h1 className="text-base mb-4">Bootstrapped</h1>
         <div className="text-base leading-[1.8] space-y-2">
           <p>
-            An independent software company. We make tools that are simple,
-            fast, and useful — things we&apos;d want to use ourselves.
+            An independent software company by Yogesh. We build and sell
+            products in analytics, AI, and developer tools.
           </p>
 
           <p className="text-muted">***</p>
@@ -122,6 +122,17 @@ export default function Home() {
                 Supalytics.co
               </a>
               <span className="ml-2">- Simple, fast growth analytics</span>
+            </p>
+            <p>
+              <a
+                href="https://www.supacortex.ai?utm_source=bootstrapped-llc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0000EE] hover:text-[#551A8B] underline transition-colors"
+              >
+                Supacortex.ai
+              </a>
+              <span className="ml-2">- Share your context across AI</span>
             </p>
           </div>
 
