@@ -35,7 +35,7 @@ const TWEETS = [
   {
     name: "Bondex",
     handle: "bondexapp",
-    avatarUrl: "https://pbs.twimg.com/profile_images/1615036567021551637/DpGTbNu9_400x400.jpg",
+    avatarUrl: "https://pbs.twimg.com/profile_images/2032120322430844929/IIcoyjfe_400x400.jpg",
     text: "Bondex acquires Remote3.co — Adding 100,000+ monthly visitors and 20,500 profiles to our ecosystem.",
     date: "Nov 13, 2025",
     url: "https://x.com/bondexapp/status/1988925324831433160",
