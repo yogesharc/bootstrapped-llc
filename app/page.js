@@ -138,17 +138,29 @@ export default function Home() {
 
           <p className="text-muted">***</p>
 
-          <p>
-            We sold{" "}
-            <ExternalLink href="https://www.promptmonitor.io?utm_source=bootstrapped-llc">
-              Promptmonitor
-            </ExternalLink>{" "}
-            and{" "}
-            <ExternalLink href="https://remote3.co?utm_source=bootstrapped-llc">
-              Remote3
-            </ExternalLink>
-            .
-          </p>
+          <div>
+            <p className="text-muted mb-2">Sold:</p>
+            <p>
+              <a
+                href="https://www.promptmonitor.io?utm_source=bootstrapped-llc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0000EE] hover:text-[#551A8B] underline transition-colors"
+              >
+                Promptmonitor.io
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://remote3.co?utm_source=bootstrapped-llc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0000EE] hover:text-[#551A8B] underline transition-colors"
+              >
+                Remote3.co
+              </a>
+            </p>
+          </div>
 
           <div className="flex flex-col gap-3 pt-2">
             {TWEETS.map((tweet) => (
