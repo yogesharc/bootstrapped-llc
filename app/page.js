@@ -159,15 +159,6 @@ export default function Home() {
 
         <div className="flex items-center justify-between text-muted text-sm pt-10">
           <span>&copy; 2022&ndash;{new Date().getFullYear()}</span>
-          <a
-            href="https://x.com/yogesharc"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-foreground transition-colors"
-          >
-            <XIcon />
-            <span>@yogesharc</span>
-          </a>
         </div>
       </div>
     </main>
