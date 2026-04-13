@@ -110,7 +110,7 @@ export default function Home() {
 
           <p className="text-muted">***</p>
 
-          <div>
+          {/* <div>
             <p className="text-muted mb-2">Projects:</p>
             <p>
               <a
@@ -136,7 +136,7 @@ export default function Home() {
             </p>
           </div>
 
-          <p className="text-muted">***</p>
+          <p className="text-muted">***</p> */}
 
           <div>
             <p className="text-muted mb-2">Sold:</p>
