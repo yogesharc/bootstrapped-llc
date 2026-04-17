@@ -104,7 +104,7 @@ export default function Home() {
         <h1 className="text-base mb-4">Bootstrapped</h1>
         <div className="text-base leading-[1.8] space-y-2">
           <p>
-            We are an independent software company. We build and sell
+            I'm Yogesh, building an independent software company. We build and sell
             products in analytics, AI, and developer tools.
           </p>
 
